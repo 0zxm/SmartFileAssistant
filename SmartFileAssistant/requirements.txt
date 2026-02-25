@@ -1,0 +1,47 @@
+# Core application
+PyQt5==5.15.11
+requests==2.32.5
+python-dotenv==1.2.1
+
+# LangChain + vector stack
+chromadb==1.4.1
+langchain==0.3.27
+langchain-community==0.3.31
+langchain-huggingface==0.3.1
+langchain-chroma==0.2.6
+langchain-text-splitters==0.3.11
+langchain-unstructured==0.1.6
+huggingface-hub==0.36.0
+
+# NLP / embeddings / LLMs
+sentence-transformers==5.1.2
+transformers==4.57.3
+torch==2.8.0
+torchaudio==2.8.0+cpu
+torchvision==0.23.0
+sentencepiece==0.2.1
+scikit-learn==1.6.1
+scipy==1.13.1
+numpy==2.0.2
+nltk==3.9.2
+rank-bm25==0.2.2
+
+# Document loaders & processing
+pandas==2.3.3
+python-docx==1.2.0
+docx2txt==0.9
+PyMuPDF==1.26.5
+PyPDF2==3.0.1
+pypdf==6.6.2
+pdf2image==1.17.0
+opencv-python==4.13.0.90
+pillow==11.3.0
+markdown==3.9
+chardet==5.2.0
+unstructured==0.10.30
+unstructured-client==0.42.8
+
+# Utilities
+python-dateutil==2.9.0.post0
+tqdm==4.67.1
+uvicorn==0.39.0
