@@ -57,6 +57,24 @@
 
 > `.env` 已加入 `.gitignore`，请勿提交真实密钥；也可直接配置系统环境变量。
 
+## Antiword 安装与配置（Windows 示例）
+仓库根目录通常会放置一个 `antiword_windows.zip`（或官方发行包），已包含 `antiword.exe` 与 `UTF-8.txt`。如果不存在，可自行从 <http://www.winfield.demon.nl/> 下载。安装步骤：
+
+1. **解压压缩包**：在项目根目录执行“全部解压”，得到如 `antiword\win64`、`antiword\win32` 等子目录。
+2. **选择匹配位数**：根据操作系统选择对应文件夹（64 位系统优先使用 `win64`）。该目录下应能看到 `antiword.exe` 与编码映射文件 `UTF-8.txt`/`utf8.txt`。
+3. **建立固定路径**：将整个文件夹移动到易于引用的位置，例如 `E:\VSCodeProject\antiword\`. 程序默认会尝试读取：
+  - 可执行文件：`E:\VSCodeProject\antiword\antiword.exe`
+  - 映射文件：`E:\VSCodeProject\antiword\UTF-8.txt`
+  如路径不同，可在 `.env` 中追加：
+  ```bash
+  ANTIWORD_CMD="D:/tools/antiword/win64/antiword.exe"
+  ANTIWORD_MAPPING_FILE="D:/tools/antiword/win64/UTF-8.txt"
+  ```
+4. **验证**：在终端执行 `"%ANTIWORD_CMD%" -h`（PowerShell 可用 `& $env:ANTIWORD_CMD -h`）。若输出帮助信息，则安装成功。
+5. **运行项目**：应用启动后读取 `.doc` 文件时会优先使用上述环境变量；若未设置则回退到 `file_read.py` 中的默认路径。
+
+> 解压得到的 `UTF-8.txt` 用于长路径与中文兼容，请务必与 `antiword.exe` 同目录保存。
+
 ## 项目结构速览
 - `main.py`：PyQt 启动入口。
 - `ui.py`：主界面逻辑，负责搜索、RAG 展示与分类入口。
@@ -75,4 +93,3 @@
 ## 进一步开发
 - 想要命令行 / FastAPI 形态，可参考 `refactored_project/server` 与 `refactored_project/client_refactored`。
 - 欢迎通过 Issue/PR 提交新的分类策略、检索 reranker 或 UI 交互改进，共同完善该工具。
-
