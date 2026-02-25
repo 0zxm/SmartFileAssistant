@@ -1,0 +1,19 @@
+/* 1. 窗口基础样式 */
+QWidget {
+  font-size: 18px;
+  font-family: JetBrains Mono, "宋体" , "Microsoft YaHei", SimSun, "华文新魏", "仿宋" ;
+}
+/* 2. 显式指定子控件样式（优先级更高） */
+QLineEdit,
+QPushButton,
+QLabel {
+  font-size: 18px;
+  font-family: JetBrains Mono, "宋体" , "Microsoft YaHei", SimSun, "华文新魏", "仿宋" ;
+  /* 可选：加个内边距，避免文字挤在一起 */
+  padding: 5px;
+}
+/* 3. 输入框占位符样式（可选优化） */
+QLineEdit::placeholder {
+  font-size: 18px;
+  color: #999;
+}
